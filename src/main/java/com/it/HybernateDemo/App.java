@@ -34,10 +34,10 @@ public class App
 			case 2:
 				System.out.println("Enter Student id");
 				int r=s.nextInt();
-				dao.getStudentData(r);
+				dao.getStudentDataBasedOnPrimaryKey(r);
 				break;
 			case 3:
-				dao.getStudentDataBasedonPrimaryKeys();
+				dao.getAllStudentsData();
 				break;
 				default:System.out.println("Please enter Valid option");
 			}
