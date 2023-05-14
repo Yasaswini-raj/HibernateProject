@@ -23,7 +23,7 @@ public class AppDao {
 		System.out.println("1 Result Updated.");
 	}
 	
-	public void getStudentData(int id) {
+	public void getStudentDataBasedOnPrimaryKey(int id) {
 		SessionFactory factory = new Configuration()
 									.configure("hibernate.cfg.xml")
 									.addAnnotatedClass(Student.class)
@@ -35,7 +35,7 @@ public class AppDao {
 		session.getTransaction().commit();;
 	}
 	
-	public void getStudentDataBasedonPrimaryKeys() {
+	public void getAllStudentsData() {
 		SessionFactory factory = new Configuration()
 				.configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Student.class)
