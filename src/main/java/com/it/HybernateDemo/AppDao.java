@@ -13,10 +13,8 @@ public class AppDao {
 	public void saveStudentData(Student student) {
 		SessionFactory factory = new Configuration()
 									.configure("hibernate.cfg.xml")
-									//entity class should be specified here
 									.addAnnotatedClass(Student.class)
 									.buildSessionFactory();
-		//Session session = factory.getCurrentSession();
 		Session session = factory.openSession();
 		session.getTransaction().begin();
 		session.save(student);
@@ -28,13 +26,10 @@ public class AppDao {
 	public void getStudentData(int id) {
 		SessionFactory factory = new Configuration()
 									.configure("hibernate.cfg.xml")
-									//entity class should be specified here
 									.addAnnotatedClass(Student.class)
 									.buildSessionFactory();
 		Session session = factory.getCurrentSession();
 		session.getTransaction().begin();
-		//session.get or session.load will work only when selected on primary key value
-		//Student student = session.load(Student.class, id);
 		Student student = session.get(Student.class, id);
 		System.out.println(student.toString());
 		session.getTransaction().commit();;
@@ -43,7 +38,6 @@ public class AppDao {
 	public void getStudentDataBasedonPrimaryKeys() {
 		SessionFactory factory = new Configuration()
 				.configure("hibernate.cfg.xml")
-				//entity class should be specified here
 				.addAnnotatedClass(Student.class)
 				.buildSessionFactory();
 		Session session = factory.getCurrentSession();
